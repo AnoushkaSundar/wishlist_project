@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WishCart — Your Smart Wishlist</title>
+  <meta name="description" content="A beautiful, AI-powered product wishlist app. Save your favourite products, get smart recommendations, and manage your wishlist with ease." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header__brand">
+        <span class="brand-icon">✦</span>
+        <span class="brand-name">WishCart</span>
+      </div>
+      <nav class="header__nav">
+        <button
+          id="navProducts"
+          class="nav-btn nav-btn--active"
+          aria-label="View Products"
+          onclick="showSection('products')"
+        >
+          Products
+        </button>
+        <button
+          id="navWishlist"
+          class="nav-btn"
+          aria-label="View Wishlist"
+          onclick="showSection('wishlist')"
+        >
+          Wishlist
+          <span id="wishlistBadge" class="badge hidden">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main container">
+
+    <!-- ── PRODUCTS SECTION ── -->
+    <section id="productsSection" class="section section--active">
+      <div class="section__header">
+        <h1 class="section__title">Discover Products</h1>
+        <p class="section__subtitle">Hand-picked premium items just for you</p>
+      </div>
+      <div id="productGrid" class="product-grid" role="list">
+        <!-- Cards injected by JS -->
+      </div>
+    </section>
+
+    <!-- ── WISHLIST SECTION ── -->
+    <section id="wishlistSection" class="section">
+      <div class="section__header">
+        <h1 class="section__title">My Wishlist</h1>
+        <p class="section__subtitle">Everything you love, saved in one place</p>
+      </div>
+
+      <!-- Empty state -->
+      <div id="wishlistEmpty" class="empty-state hidden">
+        <div class="empty-state__icon">🛍️</div>
+        <h2 class="empty-state__title">Your wishlist is empty</h2>
+        <p class="empty-state__text">Browse our products and add your favourites!</p>
+        <button class="btn btn--primary" onclick="showSection('products')">Browse Products</button>
+      </div>
+
+      <!-- Wishlist grid -->
+      <div id="wishlistGrid" class="product-grid" role="list">
+        <!-- Cards injected by JS -->
+      </div>
+
+      <!-- AI Recommendations -->
+      <div id="aiSection" class="ai-section hidden">
+        <div class="ai-section__header">
+          <span class="ai-badge">✦ AI Picks</span>
+          <h2 class="ai-section__title">Recommended For You</h2>
+          <p class="ai-section__subtitle">Based on your wishlist — powered by our smart engine</p>
+        </div>
+        <div id="aiGrid" class="product-grid" role="list">
+          <!-- Recommendation cards injected by JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© 2026 WishCart &nbsp;·&nbsp; Built with ✦ AI</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
